@@ -41,6 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
+
 	<!--banner-starts-->
 	<div class="bnr" id="home">
 		<div id="top" class="callbacks_container">
@@ -121,11 +122,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	// Ket noi CSDL
 	require('connect.php');
 	// Ket noi CSDL
+	$tim_kiem = '';
+	if (isset($_GET['tim_kiem'])) {
+		$tim_kiem = $_GET['tim_kiem'];
+	};
 
 	$sql = "SELECT sp.masanpham, sp.tensanpham, lsp.tenloaisanpham, sp.anh, sp.dongia
         FROM san_pham AS sp
         INNER JOIN loai_san_pham AS lsp 
-            ON sp.maloaisanpham = lsp.maloaisanpham
+            ON sp.maloaisanpham = lsp.maloaisanpham WHERE sp.tensanpham LIKE '%$tim_kiem%'
         ORDER BY sp.maloaisanpham LIMIT 0,6";
 
 	// echo $sql;
@@ -170,7 +175,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				}
 			}
 	?>
-	
+	<?php
+	if ($i % 3 == 1) {
+	?>
+		</div>
+		</div><br>
+	<?php
+	}
+	$i++;
+
+
+	?>
+
+
+
 	<!--product-starts-->
 	<!-- <div class="product">
 		<div class="container">
@@ -200,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div> -->
 	<!--product-end-->
 	<!--information-starts-->
-	
+
 
 </body>
 
