@@ -1,0 +1,2 @@
+_ Đợi Vũ thực hiện xong file đăng ký, đăng nhập
+-Nội dung folder: gửi mail báo thành công, thực hiện update lại mật khẩu
