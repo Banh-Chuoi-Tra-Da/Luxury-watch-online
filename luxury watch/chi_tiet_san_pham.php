@@ -1,9 +1,9 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require('header.php');
 
 require('chi_tiet_san_pham_data.php');
-
 
 ?>
 

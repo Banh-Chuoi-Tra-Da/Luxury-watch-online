@@ -1,7 +1,8 @@
-<?php 
+<?php
+session_start();
 if($_SERVER['REQUEST_METHOD']=='GET'&&isset($_GET['id_sp_bl_them'])){
     require('connect.php');
-    $email = 'hhhh@gmail.com';
+    $email = $_SESSION['login']['email'];
     $id_sp_bl_them = $_GET['id_sp_bl_them'];
     $noi_dung = $_GET['noi_dung_bl_them'];
     $sql_is_bl = "INSERT INTO `binh_luan`(`id_binh_luan`, `noi_dung_binh_luan`, `masanpham`, `email`) VALUES (NULL,'$noi_dung','$id_sp_bl_them','$email') ";
