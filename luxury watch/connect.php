@@ -8,3 +8,4 @@
     {
         die("Error".$con->connect_error);
     }
+?>

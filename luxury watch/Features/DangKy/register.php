@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <form id="reg_form" action="noti.php" method="POST">
+  <form id="reg_form" action="thuc_hien_dang_ky.php" method="POST">
   <div class="form-group">
   <span class="signup-error" id="errorusername" style="color: red">...</span>
   <input type="text" class="form-control" id="form_username" placeholder="Tên đăng nhập/Tên người dùng" name="username">
