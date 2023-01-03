@@ -3,6 +3,7 @@ $(function(){
       $('#errorusername').hide();
       $('#errorpass').hide();
 
+      $(':button[type="submit"]').prop('disabled', true);
       var error_username = false;
       var error_pass = false;
       
@@ -22,12 +23,14 @@ $(function(){
           $('#errorusername').html('Bạn chưa nhập tên người dùng');
           $('#errorusername').show(300);
           $('#form_username').focus();
+          $(':button[type="submit"]').prop('disabled', true);
           error_username = true;
         }
         else if (!pattern.test(username)) {
           $('#errorusername').html('Tên người dùng chưa đúng định dạng');
           $('#errorusername').show(300);
           $('#form_username').focus()
+          $(':button[type="submit"]').prop('disabled', true);
           error_username = true;
         }
         else {
@@ -45,6 +48,7 @@ $(function(){
           $('#errorpass').html('Bạn chưa nhập mật khẩu');
           $('#errorpass').show(300);
           $('#form_pwd').focus();
+          $(':button[type="submit"]').prop('disabled', true);
           error_pass = true;
         }
 
@@ -52,9 +56,11 @@ $(function(){
           $('#errorpass').html('Mật khẩu không đúng định dạng');
           $('#errorpass').show(300);
           $('#form_pwd').focus();
+          $(':button[type="submit"]').prop('disabled', true);
           error_pass = true;
         }
         else {
+            $(':button[type="submit"]').prop('disabled', false);
             $('#errorpass').hide(400);
         }
       }

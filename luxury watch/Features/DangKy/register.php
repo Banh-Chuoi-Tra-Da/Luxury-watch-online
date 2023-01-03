@@ -8,7 +8,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>Document</title>
-
   <script src="registerValidation.js"></script>
 </head>
 
@@ -17,10 +16,12 @@
   <div class="form-group">
   <span class="signup-error" id="errorusername" style="color: red">...</span>
   <input type="text" class="form-control" id="form_username" placeholder="Tên đăng nhập/Tên người dùng" name="username">
+  <span class="signup-error" id="errorusername2" style="color: red"></span>
   </div>
   <div class="form-group">
   <span class="signup-error" id="erroremail" style="color: red">...</span>
   <input type="email" class="form-control" id="form_email" placeholder="Email" name="email">
+    <span class="signup-error" id="erroremail2" style="color: red"></span>
   </div>
   <div class="form-group">
   <span class="signup-error" id="errorpass" style="color: red">...</span>
