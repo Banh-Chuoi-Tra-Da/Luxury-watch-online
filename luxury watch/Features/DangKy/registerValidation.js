@@ -124,7 +124,44 @@ $(function(){
             $('#errorconpass').hide(400);
         }
       }
-    
+      // Check email availablity (live) with AJAX
+      function live_check_email(){
+        if ($("#form_email").val().length != 0){
+          $("#erroremail2").html('<img src="../../images/loader.gif" style="width:30px; height:30px" />').fadeOut(6000);
+          var email = $("#form_email").val();
+          var dataString = "email="+email;
+          $.ajax({
+            type: "POST",
+            url: "check_email_availablity.php",
+            data: dataString,
+            success: function(data) {
+              $('#erroremail2').fadeIn(1000).html(data);
+            }
+          });
+        }
+      }
+      // Check username availablity (live) with AJAX
+      function live_check_username(){
+        if ($("#form_username").val().length != 0){
+          $('#errorusername2').html('<img src="../../images/loader.gif" style="width:30px; height:30px" />').fadeOut(6000);
+          var username = $('#form_username').val();
+          var dataString = 'username='+username;
+          $.ajax({
+            type: "POST",
+            url: "check_username_availablity.php",
+            data: dataString,
+            success: function(data) {
+              $('#errorusername2').fadeIn(1000).html(data);
+            }
+          });
+        }
+        else {
+          $('#errorusername2').html("");
+        }
+      }
+
+
+
       // Form submit
       $('#reg_form').submit(function(){
         error_name = false;
