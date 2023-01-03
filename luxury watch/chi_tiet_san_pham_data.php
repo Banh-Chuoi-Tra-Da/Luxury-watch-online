@@ -68,10 +68,7 @@ while ($row_lh = $data_lh->fetch_assoc()) {
     $ma_lh_full[]=$row_lh['maloaisanpham'];
     $ten_lh_full[]=$row_lh['tenloaisanpham'];
 }
-
 // hien thi tat ca binh luan
-// $sql_binh_luan = "SELECT * FROM `binh_luan` WHERE masanpham=$masanpham[$sp_hien_thi] and email='kiethuyha1192k2@gmail.com'";
-
 $sql_binh_luan = "SELECT * FROM `binh_luan` as bl JOIN nguoidung as nd on bl.email=nd.email 
 JOIN san_pham as sp on bl.masanpham=sp.masanpham  WHERE bl.masanpham=$masanpham[$sp_hien_thi] ORDER BY id_binh_luan DESC ";
 $data_bl = $con->query($sql_binh_luan);
@@ -89,12 +86,15 @@ else{
     $so_bl = 0;
 }
 //ko cho binh luan lan 2
-$email = $_SESSION['login']['email'];
-$sql_dbl = " SELECT * FROM `binh_luan` WHERE masanpham=$sp_chi_tiet and email='$email'; ";
-$data_dbl = $con->query($sql_dbl);
-if($data_dbl->num_rows>0){
-    $da_binh_luan = true;
-}
-else{
-    $da_binh_luan = false;
+if (isset($_SESSION['login'])) {
+    $email = $_SESSION['login']['email'];
+    $sql_dbl = " SELECT * FROM `binh_luan` WHERE masanpham=$sp_chi_tiet and email='$email'; ";
+    $data_dbl = $con->query($sql_dbl);
+    if ($data_dbl->num_rows > 0) {
+        $da_binh_luan = true;
+        $data_bl_sua = $data_dbl->fetch_assoc();
+    }
+    else {
+        $da_binh_luan = false;
+    }
 }

@@ -237,13 +237,28 @@ require('chi_tiet_san_pham_data.php');
     <div class="container" id="binhluan">
         <h2 style="font-weight: bold;">bình luận(<?=$so_bl?>)</h2>
         <?php 
-        if($da_binh_luan==true){
-            $display = 'none';
+        if(isset($_SESSION['login'])){
+            if($da_binh_luan==true){
+                $display = 'none';
+            }
+            else{
+                $display = 'block';
+            }
         }
-        else{
-            $display = 'block';
-        }
+        else{ 
+        $display = 'none';
+            echo " <a href='/Luxury-watch-online/luxury watch/Features/DangNhap/signin.php'>đăng nhập để bình luận</a> ";
+        } 
+
         ?>
+        <form action="xu_ly_cmt.php" method="get" id="sua_binh_luan">
+            <label for="comment">sửa bình luận:</label>
+            <textarea class="form-control" rows="3" id="text_comment_sua" maxlength="200" required="required"
+                name="noi_dung_bl_sua"><?=$data_bl_sua['noi_dung_binh_luan']?></textarea>
+            <input type="hidden" name='id_sp_bl_sua' value="<?=$sp_chi_tiet?>">
+            <button class="btn btn-success">sửa bình luận</button>
+        </form>
+
         <form action="xu_ly_cmt.php" id="form_cmt" method="get" style="display:<?=$display?>;">
             <label for="comment">để lại bình luận của bạn:</label>
             <textarea class="form-control" rows="3" id="text_comment" maxlength="200" required="required"
@@ -254,6 +269,12 @@ require('chi_tiet_san_pham_data.php');
         <?php 
         if($so_bl>0){
             for($cmt=0;$cmt<count($id_binh_luan);$cmt++){
+                if(isset($_SESSION['login'])&& $email_bl[$cmt]==$_SESSION['login']['email'] && $tennguoidung[$cmt]==$_SESSION['login']['tennguoidung']){
+                    $display_1 = 'inline';
+
+                }else{
+                    $display_1 = 'none';
+                }
                 ?>
         <div class="flex">
             <div id="thong_tin_ng_dung">
@@ -261,12 +282,16 @@ require('chi_tiet_san_pham_data.php');
                 <p id="tennguoidung"><?=$tennguoidung[$cmt]?></p>
             </div>
             <p id="noidung"><?=$noi_dung_binh_luan[$cmt]?>
-                <button id="sua_xoa" class="btn btn-link">...
-                    <ul>
-                        <li><a href="">sửa</a></li>
-                        <?php echo" <li><a href='xu_ly_cmt.php?id_sp_xoa_bl=$id_binh_luan[$cmt]&&id_sp=$sp_chi_tiet'>xóa</a></li> "?>
-                    </ul>
-                </button>
+                <?php if($email_bl[$cmt]==$_SESSION['login']['email']){
+                ;?>
+
+                <button id="sua_xoa" style="display:<?=$display_1?>;">...</button>
+            <ul id="ul_sua_xoa" style="display: none;">
+                <li id="click_sua_binh_luan" class="btn btn-link"><span>sửa</span></li>
+
+                <?php echo" <li><a href='xu_ly_cmt.php?id_sp_xoa_bl=$id_binh_luan[$cmt]&&id_sp=$sp_chi_tiet'>xóa</a></li> "?>
+                <?php }?>
+            </ul>
             </p>
         </div>
         <?php }
@@ -276,7 +301,7 @@ require('chi_tiet_san_pham_data.php');
 
 
     </div>
-    <script src="../luxury watch/js/bl.js"></script>
+    <script src="../luxury watch/js/binhluan.js"></script>
 </body>
 
 </html>
