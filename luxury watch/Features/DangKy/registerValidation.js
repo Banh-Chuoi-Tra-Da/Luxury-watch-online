@@ -132,10 +132,16 @@ $(function(){
           var dataString = "email="+email;
           $.ajax({
             type: "POST",
+            // Loại kiểu gửi dữ liệu vào Web Server
             url: "check_email_availablity.php",
+            // Đường dẫn file xử lý
             data: dataString,
+            // Dữ liệu gửi đi vào Web Server
+            cache: false,
+            // Không lưu cache để đảm bảo luôn cập nhật dữ liệu mới nhất
             success: function(data) {
               $('#erroremail2').fadeIn(1000).html(data);
+              // Thành công thì kết quả được truyền vào biến Data và thay đổi text của thẻ có tag tương ứng
             }
           });
         }
@@ -150,13 +156,11 @@ $(function(){
             type: "POST",
             url: "check_username_availablity.php",
             data: dataString,
+            cache: false,
             success: function(data) {
               $('#errorusername2').fadeIn(1000).html(data);
             }
           });
-        }
-        else {
-          $('#errorusername2').html("");
         }
       }
 

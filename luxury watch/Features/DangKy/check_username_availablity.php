@@ -2,6 +2,7 @@
 	require('../../connect.php');
 	sleep(5);
 	if (isset($_POST)) {
+		// isset kiểm tra xem một biến là biến được định nghĩa và có giá trị không phải là NULL chưa (mảng)
 	$username = (string)$_POST['username'];
 
 	$result = $con->query(
