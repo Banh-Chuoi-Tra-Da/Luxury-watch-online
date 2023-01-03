@@ -33,6 +33,7 @@ else{
 
 //-------------Lệnh khó tránh SQL Injection-----------------
 // $sql = "SELECT tennguoidung FROM nguoidung WHERE tennguoidung = '".$tenDangNhap."' AND matkhau = '".$maHoa_matKhau."'";
+// $kqTruyVan = $con->query($sql);
 
 // if ($kqTruyVan->num_rows==1) {
 // 	// code...
