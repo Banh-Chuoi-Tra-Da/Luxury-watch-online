@@ -1,6 +1,6 @@
 <?php
     $token = $_GET['token'];
-    require('database/connect.php');
+    require('connect.php');
     $sql = "SELECT customer_id
 FROM forgot_password
 WHERE token = '" . $token . "'

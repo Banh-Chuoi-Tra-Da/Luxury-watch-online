@@ -1,7 +1,7 @@
 <?php
 $token = $_POST['token'];
 $password = $_POST['password'];
-require('database/connect.php');
+require('connect.php');
 $sql = "SELECT customer_id
 FROM forgot_password
 WHERE token = '" . $token . "'
@@ -23,13 +23,17 @@ if (mysqli_num_rows($result) === 0) {
     exit;
 }
 $customer_id = mysqli_fetch_array($result)['customer_id'];
-$sql = "UPDATE `mis_nguoi_dung` 
-    set `mat_khau`='" . $password . "'
+$sql = "UPDATE `tbl_nguoi_dung` 
+    set `passwords`='" .$password . "'
     WHERE `id`= " . $customer_id;
 mysqli_query($con, $sql);
 $sql = "DELETE FROM forgot_password
 WHERE token = '" . $token . "'
 ";
-// die($sql);
-mysqli_query($con, $sql);
+if ($con->query($sql)) {
+    echo "<script type='text/javascript'>
+    window.alert('Đổi mật khẩu thành công');
+    window.location.href='index.php';
+</script>";
+};
 

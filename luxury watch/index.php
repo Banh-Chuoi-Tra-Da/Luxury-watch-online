@@ -128,8 +128,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	};
 
 	$sql = "SELECT sp.masanpham, sp.tensanpham, lsp.tenloaisanpham, sp.anh, sp.dongia
-        FROM san_pham AS sp
-        INNER JOIN loai_san_pham AS lsp 
+        FROM `tbl_san_pham` AS sp
+        INNER JOIN `tbl_loai_san_pham` AS lsp 
             ON sp.maloaisanpham = lsp.maloaisanpham WHERE sp.tensanpham LIKE '%$tim_kiem%'
         ORDER BY sp.maloaisanpham LIMIT 0,6";
 
@@ -154,7 +154,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="panel-heading"><?php echo $sp['tensanpham']; ?></div>
 							<div class="panel-body">
 								<a href="chi_tiet_san_pham.php?id= <?php echo $sp['masanpham']; ?>">
-									<img class="img-responsive zoom-img" src="https://www.casio.com/content/dam/casio/product-info/locales/vn/vi/timepiece/product/watch/G/GM/GM1/gm-110earth-1a/assets/GM-110EARTH-1A.png.transform/main-visual-pc/image.png" class="img-responsive" style="height:100px;" alt="Image">
+									<!-- <img class="img-responsive zoom-img" src="https://www.casio.com/content/dam/casio/product-info/locales/vn/vi/timepiece/product/watch/G/GM/GM1/gm-110earth-1a/assets/GM-110EARTH-1A.png.transform/main-visual-pc/image.png" class="img-responsive" style="height:120px;" alt="Image"> -->
+									<img class="img-responsive zoom-img" src="images/<?php echo $sp['anh']; ?>" class="img-responsive" style="height:150px;" alt="Image">
 
 								</a>
 

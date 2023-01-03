@@ -1,8 +1,7 @@
 <?php
-function current_url()
+function current_url() //Lấy địa chỉ hiện tại 
 {
     $url      = "http://" . $_SERVER['HTTP_HOST'];
-    // $validURL = str_replace("&", "&amp;", $url);
     return $url;
 }
 // function current_url()
@@ -17,29 +16,20 @@ function current_url()
 $email=$_POST['email'];
 // print_r($email);
 // die();
-require('database/connect.php');
-$sql = "SELECT id,ten_nguoi_dung
-FROM mis_nguoi_dung
-WHERE email = '" . $email. "'
+require('connect.php');
+$sql = "SELECT id,names
+FROM `tbl_nguoi_dung`
+WHERE `email` = '" . $email. "'
 ";
 // die($sql);
 $result=mysqli_query($con,$sql);
-// while($row = mysqli_fetch_array($result)) {
-
-//     // If you want to display all results from the query at once:
-//     print_r($row);
-//     die();
-
-
-
-// }
 
 if(mysqli_num_rows($result)===1){
     $each=mysqli_fetch_array($result);
     // print_r($each);
     // die();
     $id=$each['id'];
-    $name=$each['ten_nguoi_dung'];
+    $name=$each['names'];
     // $sql="DELETE from forgot_password WHERE customer_id='".$id."'";
     $sql = "DELETE from `forgot_password` WHERE customer_id=" . $id;
     mysqli_query($con,$sql);
@@ -47,7 +37,7 @@ if(mysqli_num_rows($result)===1){
     $sql="INSERT INTO `forgot_password`(`customer_id`, `token`)
     VALUES ('" . $id . "','" . $token . "')";
     mysqli_query($con,$sql);
-    $link = current_url().'/MIS Cua hang/change_new_password.php?token='.$token;
+    $link = current_url().'/luxury watch/change_new_password.php?token='.$token;
     // echo $link;
     // die($link);
     require('sendmail.php');
@@ -56,4 +46,3 @@ if(mysqli_num_rows($result)===1){
     send_mail($email,$name,$title,$content);
     
 }
-?>

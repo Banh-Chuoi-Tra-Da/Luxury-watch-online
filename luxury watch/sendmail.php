@@ -37,7 +37,7 @@ function send_mail($email,$name,$title,$content)
         $mail->CharSet = "UTF-8";                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('23a4040079@bav.edu.vn', 'Luong');
+        $mail->setFrom('23a4040079@bav.edu.vn', 'Hà Hữu Lương');
         $mail->addAddress($email, $name);     //Add a recipient
         // $mail->addAddress('ellen@example.com');               //Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
