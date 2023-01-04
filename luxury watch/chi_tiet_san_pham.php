@@ -1,12 +1,68 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<?php require('header.php');
-
+<?php
+require('header.php');
+// die();
 require('chi_tiet_san_pham_data.php');
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <title>Luxury Watches A Ecommerce Category Flat Bootstarp Resposive Website Template | Single :: w3layouts</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <!--Custom-Theme-files-->
+    <!--theme-style-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--start-menu-->
+    <script src="js/simpleCart.min.js"> </script>
+    <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="js/memenu.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".memenu").memenu();
+        });
+    </script>
+    <!--dropdown-->
+    <script src="js/jquery.easydropdown.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            var menu_ul = $('.menu_drop > li > ul'),
+                menu_a = $('.menu_drop > li > a');
+
+            menu_ul.hide();
+
+            menu_a.click(function(e) {
+                e.preventDefault();
+                if (!$(this).hasClass('active')) {
+                    menu_a.removeClass('active');
+                    menu_ul.filter(':visible').slideUp('normal');
+                    $(this).addClass('active').next().stop(true, true).slideDown('normal');
+                } else {
+                    $(this).removeClass('active');
+                    $(this).next().stop(true, true).slideUp('normal');
+                }
+            });
+
+        });
+    </script>
+</head>
 
 <body>
     <div class="single contact">
@@ -17,17 +73,15 @@ require('chi_tiet_san_pham_data.php');
                         <div class="col-md-5 single-top-left">
                             <div class="flexslider">
                                 <ul class="slides">
-                                    <li data-thumb="<?= $anh[$sp_hien_thi] ?>">
-                                        <div class="thumb-image"> <img src="<?= $anh[$sp_hien_thi] ?>"
-                                                data-imagezoom="true" class="img-responsive" alt="" /> </div>
+
+                                    <li data-thumb="images/<?= $anh[$sp_hien_thi] ?>">
+                                        <div class="thumb-image"> <img src="images/<?= $anh[$sp_hien_thi] ?>" data-imagezoom="true" class="img-responsive" alt="" /> </div>
                                     </li>
-                                    <li data-thumb="<?= $anh1[$sp_hien_thi] ?>">
-                                        <div class="thumb-image"> <img src="<?= $anh1[$sp_hien_thi] ?>"
-                                                data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                    <li data-thumb="images/<?= $anh1[$sp_hien_thi] ?>">
+                                        <div class="thumb-image"> <img src="images/<?= $anh1[$sp_hien_thi] ?> ?>" data-imagezoom="true" class="img-responsive" alt="" /> </div>
                                     </li>
-                                    <li data-thumb="<?= $anh2[$sp_hien_thi] ?>">
-                                        <div class="thumb-image"> <img src="<?= $anh2[$sp_hien_thi] ?>"
-                                                data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                    <li data-thumb="images/<?= $anh2[$sp_hien_thi] ?>">
+                                        <div class="thumb-image"> <img src="images/<?= $anh2[$sp_hien_thi] ?>" data-imagezoom="true" class="img-responsive" alt="" /> </div>
                                     </li>
                                 </ul>
                             </div>
@@ -37,13 +91,13 @@ require('chi_tiet_san_pham_data.php');
                             <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 
                             <script>
-                            // Can also be used with $(document).ready()
-                            $(window).load(function() {
-                                $('.flexslider').flexslider({
-                                    animation: "slide",
-                                    controlNav: "thumbnails"
+                                // Can also be used with $(document).ready()
+                                $(window).load(function() {
+                                    $('.flexslider').flexslider({
+                                        animation: "slide",
+                                        controlNav: "thumbnails"
+                                    });
                                 });
-                            });
                             </script>
                         </div>
                         <div class="col-md-7 single-top-right">
@@ -71,29 +125,27 @@ require('chi_tiet_san_pham_data.php');
 
                                 <ul class="tag-men">
                                     <li><span>TAG</span>
-                                        <span class="women1"
-                                            style="padding-left: 8px;">:<?= $ten_sp_theo_gt[$sp_hien_thi] ?></span>
+                                        <span class="women1" style="padding-left: 8px;">:<?= $ten_sp_theo_gt[$sp_hien_thi] ?></span>
                                     </li>
                                     <li><span>Hãng</span>
                                         <span class="women1">:<?= $tennhacungcap[$sp_hien_thi] ?></span>
                                     </li>
                                 </ul>
-                                <div id="soluong">
-                                    <form action="xu_ly_them_gh.php" method="get">
-                                        <label style="font-size: 15px;">số lượng:</label>
-                                        <button type="button" style="font-size: 20px;"
-                                            class="btn btn-secondary">+</button>
-                                        <input type="text" name="soluong" value="<?= $soluong_them ?>" readonly
-                                            style="width: 30px; display: inline-block;  font-size: 25px; padding-left: 5px; border: none;">
-                                        <input type="hidden" name="id" value="<?=$masanpham[$sp_hien_thi]?>">
-                                        <button style="font-size: 20px;" type="button" class="btn btn-secondary"
-                                            style="border: none;">-</button>
-                                        <br>
-                                        <button id="themvaogh" type="submit"
-                                            style="font-size: 20px;background-color: black;color: white;">thêm
+                                <div>
+                                    <form action="them_gio_hang.php" method="get">
+                                        <!-- <label style="font-size: 15px;">số lượng:</label>
+                                        <button type="button" style="font-size: 20px;" class="btn btn-secondary">+</button>
+                                        <input type="text" name="soluong" value="<?= $soluong_them ?>" readonly style="width: 30px; display: inline-block;  font-size: 25px; padding-left: 5px; border: none;">
+                                        <input type="hidden" name="id" value="<?= $masanpham[$sp_hien_thi] ?>">
+                                        <button style="font-size: 20px;" type="button" class="btn btn-secondary" style="border: none;">-</button>
+                                        <br> -->
+                                        <!-- <button id="themvaogh" type="submit" style="font-size: 20px;background-color: black;color: white;">thêm
                                             vào
                                             giỏ
-                                            hàng</button>
+                                            hàng</button> -->
+                                        <button data-id="<?= $masanpham[$sp_hien_thi] ?>" class="btn-add-to-cart btn-primary">Thêm giỏ hàng</button>
+
+                                        <input type="hidden" name="id" value="<?= $masanpham[$sp_hien_thi] ?>">
 
                                     </form>
                                 </div>
@@ -111,27 +163,25 @@ require('chi_tiet_san_pham_data.php');
                             <h2>sản phẩm cùng loại</h2>
                             <?php
                             $so_sp_tt = 0;
-                            for ($i = 0; $i < count($masanpham);$i++){
-                                if($manhacungcap[$i]==$manhacungcap[$i]){
+                            for ($i = 0; $i < count($masanpham); $i++) {
+                                if ($manhacungcap[$i] == $manhacungcap[$i]) {
                                     $so_sp_tt++;
                                 }
-
                             }
-                            if($so_sp_tt>=3){
+                            if ($so_sp_tt >= 3) {
                                 $col = 4;
-                            }
-                            else{
+                            } else {
                                 $col = 6;
                             }
                             $ban_ghi = 0;
                             for ($sp_tt = 0; $sp_tt < count($masanpham); $sp_tt++) {
                                 if ($masanpham[$sp_tt] == $masanpham[$sp_hien_thi]) {
                                     continue;
-                                } 
+                                }
 
-                                    if ($manhacungcap[$sp_tt] == $manhacungcap[$sp_hien_thi]) {
+                                if ($manhacungcap[$sp_tt] == $manhacungcap[$sp_hien_thi]) {
                                     $ban_ghi++;
-                                                echo "
+                                    echo "
                                         <div class='col-md-$col product-left p-left'>
                                              <div class='product-main simpleCart_shelfItem'>
                                                       <a href='chi_tiet_san_pham.php?id=$masanpham[$sp_tt]' class='mask'><img src='$anh[$sp_tt]' height='200px' alt='' /></a>
@@ -143,13 +193,12 @@ require('chi_tiet_san_pham_data.php');
                                            </div>
                                         </div>
                                                 ";
-                                    
                                 }
-                                if($ban_ghi==3){
+                                if ($ban_ghi == 3) {
                                     break;
                                 }
                             }
-                                
+
                             ?>
 
                             <div class="clearfix"></div>
@@ -166,7 +215,7 @@ require('chi_tiet_san_pham_data.php');
                                 for ($sp_danh_cho = 0; $sp_danh_cho < count($ma_sp_theo_gt_full); $sp_danh_cho++) {
                                     if ($ma_sp_theo_gt_full[$sp_danh_cho] == $ma_sp_theo_gt[$sp_hien_thi]) {
                                         $checked = 'checked';
-                                        $disable = '';
+                                        $disabled = '';
                                     } else {
                                         $checked = '';
                                         $disabled = 'disabled';
@@ -235,48 +284,107 @@ require('chi_tiet_san_pham_data.php');
         </div>
     </div>
     <div class="container" id="binhluan">
-        <h2 style="font-weight: bold;">bình luận(<?=$so_bl?>)</h2>
-        <?php 
-        if($da_binh_luan==true){
+        <h2 style="font-weight: bold;">bình luận(<?= $so_bl ?>)</h2>
+        <?php
+        if (isset($_SESSION['login'])) {
+            if ($da_binh_luan == true) {
+                $display = 'none';
+            } else {
+                $display = 'block';
+            }
+        } else {
             $display = 'none';
+            echo " <a href='signin.php'>đăng nhập để bình luận</a> ";
         }
-        else{
-            $display = 'block';
-        }
+
         ?>
-        <form action="xu_ly_cmt.php" id="form_cmt" method="get" style="display:<?=$display?>;">
+        <form action="xu_ly_cmt.php" method="get" id="sua_binh_luan">
+            <label for="comment">sửa bình luận:</label>
+            <textarea class="form-control" rows="3" id="text_comment_sua" maxlength="200" required="required" name="noi_dung_bl_sua"><?= $data_bl_sua['noi_dung_binh_luan'] ?></textarea>
+            <input type="hidden" name='id_sp_bl_sua' value="<?= $sp_chi_tiet ?>">
+            <button class="btn btn-success">sửa bình luận</button>
+        </form>
+
+
+        <form action="xu_ly_cmt.php" id="form_cmt" method="get" style="display:<?= $display ?>;">
             <label for="comment">để lại bình luận của bạn:</label>
-            <textarea class="form-control" rows="3" id="text_comment" maxlength="200" required="required"
-                name="noi_dung_bl_them"></textarea>
-            <input type="hidden" name='id_sp_bl_them' value="<?=$sp_chi_tiet?>">
+            <textarea class="form-control" rows="3" id="text_comment" maxlength="200" required="required" name="noi_dung_bl_them"></textarea>
+            <input type="hidden" name='id_sp_bl_them' value="<?= $sp_chi_tiet ?>">
             <button class="btn btn-success">bình luận</button>
         </form>
-        <?php 
-        if($so_bl>0){
-            for($cmt=0;$cmt<count($id_binh_luan);$cmt++){
-                ?>
-        <div class="flex">
-            <div id="thong_tin_ng_dung">
-                <img id="avatar" src="../luxury watch/images/avt.jpg" height="55" width="55">
-                <p id="tennguoidung"><?=$tennguoidung[$cmt]?></p>
-            </div>
-            <p id="noidung"><?=$noi_dung_binh_luan[$cmt]?>
-                <button id="sua_xoa" class="btn btn-link">...
-                    <ul>
-                        <li><a href="">sửa</a></li>
-                        <?php echo" <li><a href='xu_ly_cmt.php?id_sp_xoa_bl=$id_binh_luan[$cmt]&&id_sp=$sp_chi_tiet'>xóa</a></li> "?>
+        <?php
+        if ($so_bl > 0) {
+            for ($cmt = 0; $cmt < count($id_binh_luan); $cmt++) {
+                if (isset($_SESSION['login']) && $email_bl[$cmt] == $_SESSION['login']['email']) {
+                    $display_1 = 'inline';
+                } else {
+                    $display_1 = 'none';
+                } //&& $tennguoidung[$cmt] == $_SESSION['login']['tennguoidung'])
+        ?>
+                <div class="flex">
+                    <div id="thong_tin_ng_dung">
+                        <img id="avatar" src="../luxury watch/images/avt.jpg" height="55" width="55">
+                        <p id="tennguoidung"><?= $email_bl[$cmt] ?></p>
+                    </div>
+                    <p id="noidung"><?= $noi_dung_binh_luan[$cmt] ?>
+                        <?php if ($email_bl[$cmt] == $_SESSION['login']['email']) {; ?>
+
+                            <button id="sua_xoa" style="display:<?= $display_1 ?>;">...</button>
+                    <ul id="ul_sua_xoa" style="display: none;">
+                        <li id="click_sua_binh_luan" class="btn btn-link"><span>sửa</span></li>
+
+                        <?php echo " <li><a href='xu_ly_cmt.php?id_sp_xoa_bl=$id_binh_luan[$cmt]&&id_sp=$sp_chi_tiet'>xóa</a></li> " ?>
+                    <?php } ?>
                     </ul>
-                </button>
-            </p>
-        </div>
+                    </p>
+                </div>
         <?php }
-            } else {
+        } else {
             echo "<h3>chưa có bình luận nào</h3>";
-        }?>
+        } ?>
 
 
     </div>
-    <script src="../luxury watch/js/bl.js"></script>
+    <script src="../luxury watch/js/binhluan.js"></script>
+    <!-- Dùng Ajax xử lý bất đồng bộ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".btn-add-to-cart").click(function() {
+                // alert("Nút đã bấm");
+                let id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    url: "them_gio_hang.php",
+                    data: {
+                        id
+                    },
+                    // dataType: "dataType",
+                    success: function(response) {
+                        if (response == 1) {
+                            // alert("Thêm giỏ hàng thành công");
+                            // header('location:index.php');
+
+                            window.alert('Thêm giỏ hàng thành công');
+                            window.location.href = 'index.php';
+
+
+
+                        } else {
+                            alert(response);
+                        }
+
+                    }
+                });
+
+
+                // alert("bn đã bấm id: "+id);
+
+
+
+            });
+        });
+    </script>
 </body>
 
 </html>

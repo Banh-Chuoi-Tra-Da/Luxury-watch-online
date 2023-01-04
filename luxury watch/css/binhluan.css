@@ -2,6 +2,10 @@
     display: flex;
     /* justify-content: space-around; */
 }
+
+a{
+    text-decoration: none;
+}
 #avatar{
     border-radius: 50%;
 }
@@ -29,14 +33,41 @@
     height: 90px;
 }
 
+#sua_xoa{
+    background-color: white;
+    border: none;
+    color: blue;
+}
+
 #sua_xoa ul{
     /* display: none; */
   display: inline-block;
 }
 #sua_xoa ul li{
+
+    color: blue;
     text-decoration: none;
 }
 div.flex{
     padding-top: 5px;
     border-bottom: 0.5px solid bisque;
+
+}
+#themvaogh{
+    box-shadow: 3px 3px 3px 3px #efeff6; 
+/* -moz-box-shadow: 3px 3px 3px 3px #a7a7ae;
+-webkit-box-shadow: 3px 3px 3px 3px #a7a7ae; 
+-o-box-shadow: 3px 3px 3px 3px#a7a7ae;
+-ms-box-shadow: 3px 3px 3px 3px #a7a7ae; ;
+} */}
+#sua_binh_luan{
+
+   display: none;
+}
+#ul_sua_xoa li a{
+    margin-left: 13px;
+    color: red;
+}
+#click_sua_binh_luan{
+    color: blue;
 }

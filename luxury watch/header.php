@@ -3,15 +3,45 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>Document</title> -->
+    <title>Luxury Watches Online</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"> -->
+    <!--Custom-Theme-files-->
+    <!--theme-style-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+    </script>
+    <!--start-menu-->
+    <script src="js/simpleCart.min.js"> </script>
+    <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="../luxury watch/css/binhluan.css">
+    <script type="text/javascript" src="js/memenu.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $(".memenu").memenu();
+    });
+    </script>
+    <!--dropdown-->
+    <script src="js/jquery.easydropdown.js"></script>
 </head>
+
 
 <body>
     <?php
@@ -66,7 +96,7 @@ session_start();
                                     <span class="glyphicon glyphicon-user"></span>
                                     <?php
                                     
-                                    if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
+                                    if (isset($_SESSION["ten_dang_nhap"])) {
                                         echo "Xin chào " . $_SESSION['ten_dang_nhap'];
                                     } else {
                                         echo "Tài khoản";
@@ -79,7 +109,7 @@ session_start();
                                 </a>
                                 <ul class="dropdown-menu">
                                     <?php
-                                    if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
+                                    if (isset($_SESSION["ten_dang_nhap"])) {
                                     ?>
                                         <li><a href="#">Thông tin tài khoản</a></li>
                                         <li><a href="signout.php">Đăng Xuất</a></li>
@@ -256,7 +286,7 @@ session_start();
                                     </div>
                                 </div>
                             </li>
-                            <li class="grid"><a href="typo.html">Blog</a>
+                            <li class="grid"><a href="frequent_question.php">Blog</a>
                             </li>
                             <li class="grid"><a href="contact.html">Contact</a>
                             </li>
@@ -286,3 +316,4 @@ session_start();
 
 </html>
 <!--top-header-->
+

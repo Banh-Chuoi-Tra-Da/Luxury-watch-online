@@ -17,10 +17,8 @@ $each = mysqli_fetch_array($ketQuaTruyVan);
 if ($ketQuaTruyVan->num_rows == 1) {
     // echo "Đăng nhập thành công";
     session_start();
-    $_SESSION["login"] = 1;
-    // $sql = "SELECT id FROM tbl_nguoi_dung";
-    // $ketQuaTruyVan = $con->query($sql);
-    // $each = mysqli_fetch_array($ketQuaTruyVan);
+    $_SESSION["login"] = $each;
+    // var_dump($_SESSION['login']);
     $_SESSION["id"] = $each['id'];
     $_SESSION["ten_dang_nhap"] = $each['names'];
     if ($remmember) {
