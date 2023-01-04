@@ -184,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     echo "
                                         <div class='col-md-$col product-left p-left'>
                                              <div class='product-main simpleCart_shelfItem'>
-                                                      <a href='chi_tiet_san_pham.php?id=$masanpham[$sp_tt]' class='mask'><img src='$anh[$sp_tt]' height='200px' alt='' /></a>
+                                                      <a href='chi_tiet_san_pham.php?id=$masanpham[$sp_tt]' class='mask'><img src='images/$anh[$sp_tt]' height='200px' alt='' /></a>
                                                     <div class='product-bottom'>
                                                         <h3>$tensanpham[$sp_tt]</h3>
                                                          <p>Explore Now</p>
@@ -327,11 +327,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <p id="tennguoidung"><?= $email_bl[$cmt] ?></p>
                     </div>
                     <p id="noidung"><?= $noi_dung_binh_luan[$cmt] ?>
-                        <?php if ($email_bl[$cmt] == $_SESSION['login']['email']) {; ?>
+                        <?php if ($email_bl[$cmt] == isset($_SESSION['login']['email'])) {; ?>
 
                             <button id="sua_xoa" style="display:<?= $display_1 ?>;">...</button>
                     <ul id="ul_sua_xoa" style="display: none;">
-                        <li id="click_sua_binh_luan" class="btn btn-link"><span>sửa</span></li>
+                        <li id="click_sua_binh_luan" class="btn btn-link"><span>Sửa</span></li>
 
                         <?php echo " <li><a href='xu_ly_cmt.php?id_sp_xoa_bl=$id_binh_luan[$cmt]&&id_sp=$sp_chi_tiet'>xóa</a></li> " ?>
                     <?php } ?>
