@@ -29,7 +29,7 @@ $(function(){
     else if (!pattern.test(username)) {
       $('#errorusername').html('Tên người dùng chưa đúng định dạng');
       $('#errorusername').show(300);
-      $('#form_username').focus()
+      $('#form_username').focus();
       $(':button[type="submit"]').prop('disabled', true);
       error_username = true;
     }

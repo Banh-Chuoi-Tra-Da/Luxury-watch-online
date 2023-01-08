@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require('connect.php');
 	sleep(5);
 	$email = (string)$_POST['email'];

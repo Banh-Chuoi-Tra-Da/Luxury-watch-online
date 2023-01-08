@@ -127,7 +127,7 @@
         // Check email availablity (live) with AJAX
         function live_check_email(){
           if ($("#form_email").val().length != 0){
-            $("#erroremail2").html('<img src="../../images/loader.gif" style="width:30px; height:30px" />').fadeOut(6000);
+            $("#erroremail2").html('<img src="images/loader2.gif" style="width:auto; height:30px" />').fadeOut(6000);
             var email = $("#form_email").val();
             var dataString = "email="+email;
             $.ajax({
@@ -149,7 +149,7 @@
         // Check username availablity (live) with AJAX
         function live_check_username(){
           if ($("#form_username").val().length != 0){
-            $('#errorusername2').html('<img src="../../images/loader.gif" style="width:30px; height:30px" />').fadeOut(6000);
+            $('#errorusername2').html('<img src="images/loader2.gif" style="width:auto; height:30px" />').fadeOut(6000);
             var username = $('#form_username').val();
             var dataString = 'username='+username;
             $.ajax({
