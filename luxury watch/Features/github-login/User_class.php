@@ -10,13 +10,13 @@ checkUser() – Check whether the user data already exists in the database. Upda
  * @url        http://www.codexworld.com 
  * @license    http://www.codexworld.com/license 
  */ 
- 
+
 class User { 
     private $dbHost     = 'localhost'; 
     private $dbUsername = 'root'; 
     private $dbPassword = ''; 
     private $dbName     = 'luxury_watch_online'; 
-    private $userTbl    = 'users'; 
+    private $userTbl    = 'users';
      
     function __construct(){ 
         if(!isset($this->db)){ 
@@ -28,8 +28,17 @@ class User {
                 $this->db = $conn; 
             } 
         } 
-    } 
-     
+    }
+
+    function timeZone(){
+        // Config Timezone to Hồ Chí Minh City
+        $tz = 'Asia/Ho_Chi_Minh';
+        $timestamp = time();
+        $dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
+        $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
+        return $dt->format('Y-m-d H:i:s');
+    }
+
     function checkUser($data = array()){ 
         if(!empty($data)){ 
             // Check whether the user already exists in the database 
@@ -38,7 +47,7 @@ class User {
              
             // Add modified time to the data array 
             if(!array_key_exists('modified',$data)){ 
-                $data['modified'] = date("Y-m-d H:i:s"); 
+                $data['modified'] = $this->timeZone(); 
             } 
              
             if($checkResult->num_rows > 0){ 
@@ -58,7 +67,7 @@ class User {
             }else{ 
                 // Add created time to the data array 
                 if(!array_key_exists('created',$data)){ 
-                    $data['created'] = date("Y-m-d H:i:s"); 
+                    $data['created'] = $this->timeZone(); 
                 } 
                  
                 // Prepare column and value format 
@@ -83,5 +92,5 @@ class User {
          
         // Return user data 
         return !empty($userData)?$userData:false; 
-    } 
+    }
 }
