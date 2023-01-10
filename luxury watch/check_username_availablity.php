@@ -6,7 +6,7 @@
 	$username = (string)$_POST['username'];
 
 	$result = $con->query(
-	'SELECT * FROM names WHERE tbl_nguoi_dung = "'.strtolower($username).'"'
+	'SELECT * FROM tbl_nguoi_dung WHERE names = "'.strtolower($username).'"'
 	);
 
 	if ($result->num_rows > 0) {

@@ -31,7 +31,7 @@ if (isset($_SESSION['id'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
   <title>Document</title>
 
-  <script src="registerValidationSingin.js"></script>
+  <script src="registerValidationSignin.js"></script>
 </head>
 
 
