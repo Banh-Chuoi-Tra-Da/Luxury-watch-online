@@ -44,9 +44,14 @@ if (isset($_COOKIE['remember'])) {
     <div class="form-group">
       <span class="signup-error" id="errorpass" style="color: red">...</span>
       <input type="password" class="form-control" id="form_pwd" placeholder="Mật khẩu" name="pass">
+      <div>
       <label for="remember">Ghi nhớ đăng nhập </label>
       <input type="checkbox" name="remember" id="">
       <a href="forgot_password.php">Quên mật khẩu</a>
+      </div>
+      <div>
+      <a href="Features/github-login/index.php"><img src="Features/github-login/images/github-login.jpg" style="width: 190px; height: auto;"></a>  
+      </div>
     </div>
     <button type="submit" class="btn btn-default" name="submit">Đăng nhập</button>
   </form>
