@@ -2,7 +2,7 @@
 session_start();
 $id=$_GET['id'];
 $type=$_GET['type'];
-if($type=='decre')
+if($type=='0')
 {
     if($_SESSION['gio_hang'][$id]['soluongmua']>1){
         $_SESSION['gio_hang'][$id]['soluongmua']--;

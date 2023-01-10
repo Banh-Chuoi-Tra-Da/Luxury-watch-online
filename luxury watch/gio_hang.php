@@ -1,12 +1,9 @@
 <?php
 session_start();
-if (isset($_SESSION['login'])) {
+if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
     echo "Xin chào " . $_SESSION['ten_dang_nhap'];
 } else {
     echo "Tài khoản";
-}
-if (empty($_SESSION['ten_dang_nhap'])) {
-    header('location:dang_nhap.php');
 }
 if (empty($_SESSION['gio_hang'])) {
     echo "<script type='text/javascript'>
@@ -55,8 +52,7 @@ $sum = 0;
                     <td><?php echo $row['tensanpham']; ?></a></td>
                     <!-- <td></a></td> -->
                     <td>
-                        <!-- <a href="update_quantity_in_cart.php?id=<?php echo $id; ?>&type=decre">
-                            - </a> -->
+
                         <button class="btn-update-quantity" data-id="<?php echo $id; ?>" data-type="0">-
                         </button>
                         <span class="span-quantity">
@@ -105,7 +101,9 @@ $sum = 0;
         <br> <br>
     </div>
 </div>
+
 <?php
+$tongtien_paypal=round($total/23000); // Lấy ra số tiền cần thanh toán, đổi qua USD
 $id = $_SESSION['id'];
 // echo $id;
 require('connect.php');
@@ -115,6 +113,7 @@ $sql = "SELECT * FROM tbl_nguoi_dung WHERE id=" . $id;
 $ketQuaTruyVan = $con->query($sql);
 $each = mysqli_fetch_array($ketQuaTruyVan);
 ?>
+<input type="hidden" name="" id="tongtien" value="<?php echo $tongtien_paypal; ?>">
 <!-- <a class="btn btn-success" href="thanh_toan.php">Thanh toán</a> -->
 <form method="post" action="thanh_toan.php">
     <div class="form-group">
@@ -123,17 +122,62 @@ $each = mysqli_fetch_array($ketQuaTruyVan);
     </div>
 
     <div class="form-group">
-        <label for="exampleInputPassword1">SDT</label>
+        <label for="exampleInputPassword1">Số điện thoại</label>
         <input type="text" name="phone_number" class="form-control" id="exampleInputPassword1" value="<?php echo $each['phone_number']; ?>">
 
     </div>
     <div class="form-group">
-        <label for="exampleInputPassword1">Dia chi</label>
+        <label for="exampleInputPassword1">Địa chỉ</label>
         <input type="text" name="address" class="form-control" id="exampleInputPassword1" placeholder="Dia chi" value="<?php echo $each['address']; ?>">
 
     </div>
 
-    <button type="submit" class="btn btn-primary">Thanh toán</button>
+    <script src="https://www.paypal.com/sdk/js?client-id=AW5Xm-3NNFQenC9Pp0Tuwtz1EdNs45u11tzDNGK_4X-hp1Wf8wZzyGWcYGxkdSmos8cEfOB_pB7b8Y4d&currency=USD"></script>
+    <!-- Set up a container element for the button -->
+    <div class="wrap" style="display:flex; flex-direction:column; justify-content:center;align-items:center;margin-top:30px;">
+
+        <div id="paypal-button-container" style="">
+            <!-- <button class="btn btn-primary">Thanh toán qua visa</button> -->
+
+        </div>
+        <button type="submit" class="btn btn-primary" > Cập nhập thông tin
+        </button>
+    </div>
+
+    <script>
+        paypal.Buttons({
+            // Sets up the transaction when a payment button is clicked
+            createOrder: (data, actions) => {
+                var tongtien=document.getElementById('tongtien').value;
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: tongtien // Can also reference a variable or function
+                        }
+                    }]
+                });
+            },
+            // Finalize the transaction after payer approval
+            onApprove: (data, actions) => {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For dev/demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    const transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert(`Transaction ${transaction.status}: ${transaction.id}\n\nThanh toán thành công`);
+                    // window.location.replace('http://localhost/Luxury-watch-online/luxury%20watch/index.php')
+                    // When ready to go live, remove the alert and show a success message within this page. For example:
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+            }
+            // onCancle: function(data) {
+            //     window.location.replace('http://localhost/Luxury-watch-online/luxury%20watch/index.php');
+
+            // }
+        }).render('#paypal-button-container');
+    </script>
+
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
@@ -203,10 +247,12 @@ $each = mysqli_fetch_array($ketQuaTruyVan);
                 $("#span-total").text(total);
 
             }
-       
+
         });
     });
 </script>
+<!-- // Thanh toán qua paypal -->
+
 </body>
 
 </html>

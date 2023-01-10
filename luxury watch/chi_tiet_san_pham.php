@@ -286,11 +286,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container" id="binhluan">
         <h2 style="font-weight: bold;">bình luận(<?= $so_bl ?>)</h2>
         <?php
-        if (isset($_SESSION['login'])) {
-            if ($da_binh_luan == true) {
-                $display = 'none';
-            } else {
+         if (isset($_SESSION['login'])) {
+            if ($da_binh_luan == false && isset($cho_binh_luan)&& $cho_binh_luan==true) {
                 $display = 'block';
+            } else {
+                $display = 'none';
             }
         } else {
             $display = 'none';
