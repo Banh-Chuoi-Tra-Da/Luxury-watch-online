@@ -9,6 +9,8 @@
     $total_price = 0;
     foreach ($gio_hang as $each) {
         $total_price += $each['soluongmua'] * $each['gia_ban'];
+        // Trừ đi số lượng trong danh mục sản phẩm
+        $soluongcon=(int)$each['soluong']-(int)$each['soluongmua'];
     }
     $customer_id = $_SESSION['id'];
 
@@ -26,7 +28,12 @@
         $gia_ban = $each['gia_ban'];
         $sql = "INSERT INTO `tbl_chi_tiet_hoa_don`(`hoa_don_id`, `mat_hang_id`, `gia_ban`, `so_luong`) VALUES ('" . $order_id . "','" . $gio_hang_id . "','" . $gia_ban . "','" . $soluong . "')";
         mysqli_query($con, $sql);
+        
     }
+    // Cập nhập số lượng 
+
+    $sql = "UPDATE `tbl_san_pham` SET `soluong` = '$soluongcon' where `masanpham` = '".$each['masanpham']."'";
+    mysqli_query($con,$sql) or die("Lỗi câu lệnh update số lượng sản phẩm");
     mysqli_close($con);
     unset($_SESSION['gio_hang']);
     // header('location:index.php');

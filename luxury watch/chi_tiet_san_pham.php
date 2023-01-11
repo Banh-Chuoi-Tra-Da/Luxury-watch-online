@@ -21,48 +21,73 @@ require('chi_tiet_san_pham_data.php');
     <meta name="keywords" content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript">
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
     </script>
     <!--start-menu-->
     <script src="js/simpleCart.min.js"> </script>
     <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script type="text/javascript" src="js/memenu.js"></script>
     <script>
-    $(document).ready(function() {
-        $(".memenu").memenu();
-    });
+        $(document).ready(function() {
+            $(".memenu").memenu();
+        });
     </script>
     <!--dropdown-->
     <script src="js/jquery.easydropdown.js"></script>
     <script type="text/javascript">
-    $(function() {
+        $(function() {
 
-        var menu_ul = $('.menu_drop > li > ul'),
-            menu_a = $('.menu_drop > li > a');
+            var menu_ul = $('.menu_drop > li > ul'),
+                menu_a = $('.menu_drop > li > a');
 
-        menu_ul.hide();
+            menu_ul.hide();
 
-        menu_a.click(function(e) {
-            e.preventDefault();
-            if (!$(this).hasClass('active')) {
-                menu_a.removeClass('active');
-                menu_ul.filter(':visible').slideUp('normal');
-                $(this).addClass('active').next().stop(true, true).slideDown('normal');
-            } else {
-                $(this).removeClass('active');
-                $(this).next().stop(true, true).slideUp('normal');
-            }
+            menu_a.click(function(e) {
+                e.preventDefault();
+                if (!$(this).hasClass('active')) {
+                    menu_a.removeClass('active');
+                    menu_ul.filter(':visible').slideUp('normal');
+                    $(this).addClass('active').next().stop(true, true).slideDown('normal');
+                } else {
+                    $(this).removeClass('active');
+                    $(this).next().stop(true, true).slideUp('normal');
+                }
+            });
+
         });
-
-    });
     </script>
 </head>
+<style>
+    /* 9 */
+    .btn-9 {
+        margin-top: 10px;
+        border: none;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .btn-9:after {
+        position: absolute;
+        content: " ";
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1fd1f9;
+        background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+        transition: all 0.3s ease;
+    }
+
+   
+</style>
 
 <body>
     <div class="single contact">
@@ -75,16 +100,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="slides">
 
                                     <li data-thumb="images/<?= $anh[$sp_hien_thi] ?>">
-                                        <div class="thumb-image"> <img src="images/<?= $anh[$sp_hien_thi] ?>"
-                                                data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                        <div class="thumb-image"> <img src="images/<?= $anh[$sp_hien_thi] ?>" data-imagezoom="true" class="img-responsive" alt="" /> </div>
                                     </li>
                                     <li data-thumb="images/<?= $anh1[$sp_hien_thi] ?>">
-                                        <div class="thumb-image"> <img src="images/<?= $anh1[$sp_hien_thi] ?> ?>"
-                                                data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                        <div class="thumb-image"> <img src="images/<?= $anh1[$sp_hien_thi] ?> ?>" data-imagezoom="true" class="img-responsive" alt="" /> </div>
                                     </li>
                                     <li data-thumb="images/<?= $anh2[$sp_hien_thi] ?>">
-                                        <div class="thumb-image"> <img src="images/<?= $anh2[$sp_hien_thi] ?>"
-                                                data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                        <div class="thumb-image"> <img src="images/<?= $anh2[$sp_hien_thi] ?>" data-imagezoom="true" class="img-responsive" alt="" /> </div>
                                     </li>
                                 </ul>
                             </div>
@@ -94,13 +116,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 
                             <script>
-                            // Can also be used with $(document).ready()
-                            $(window).load(function() {
-                                $('.flexslider').flexslider({
-                                    animation: "slide",
-                                    controlNav: "thumbnails"
+                                // Can also be used with $(document).ready()
+                                $(window).load(function() {
+                                    $('.flexslider').flexslider({
+                                        animation: "slide",
+                                        controlNav: "thumbnails"
+                                    });
                                 });
-                            });
                             </script>
                         </div>
                         <div class="col-md-7 single-top-right">
@@ -128,8 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <ul class="tag-men">
                                     <li><span>TAG</span>
-                                        <span class="women1"
-                                            style="padding-left: 8px;">:<?= $ten_sp_theo_gt[$sp_hien_thi] ?></span>
+                                        <span class="women1" style="padding-left: 8px;">:<?= $ten_sp_theo_gt[$sp_hien_thi] ?></span>
                                     </li>
                                     <li><span>Hãng</span>
                                         <span class="women1">:<?= $tennhacungcap[$sp_hien_thi] ?></span>
@@ -147,8 +168,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             vào
                                             giỏ
                                             hàng</button> -->
-                                        <button data-id="<?= $masanpham[$sp_hien_thi] ?>"
-                                            class="btn-add-to-cart btn-primary">Thêm giỏ hàng</button>
+                                        <button data-id="<?= $masanpham[$sp_hien_thi] ?>" class="custom-btn btn-9 btn-add-to-cart btn-primary ">Thêm giỏ hàng</button>
 
                                         <input type="hidden" name="id" value="<?= $masanpham[$sp_hien_thi] ?>">
 
@@ -292,7 +312,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <h2 style="font-weight: bold;">bình luận(<?= $so_bl ?>)</h2>
         <?php
         if (isset($_SESSION['login'])) {
-            if ( isset($cho_binh_luan)&& $cho_binh_luan==true) {
+            if (isset($cho_binh_luan) && $cho_binh_luan == true) {
                 $display = 'block';
             } else {
                 $display = 'none';
@@ -311,8 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         ?>
         <form action="xu_ly_cmt.php" method="get" id="sua_binh_luan">
             <label for="comment">sửa bình luận:</label>
-            <textarea class="form-control" rows="3" id="text_comment_sua" maxlength="200" required="required"
-                name="noi_dung_bl_sua"><?= $data_bl_sua['noi_dung_binh_luan'] ?></textarea>
+            <textarea class="form-control" rows="3" id="text_comment_sua" maxlength="200" required="required" name="noi_dung_bl_sua"><?= $data_bl_sua['noi_dung_binh_luan'] ?></textarea>
             <input type="hidden" name='id_sp_bl_sua' value="<?= $sp_chi_tiet ?>">
             <button class="btn btn-success">sửa bình luận</button>
         </form>
@@ -320,8 +339,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <form action="xu_ly_cmt.php" id="form_cmt" method="get" style="display:<?= $display ?>;">
             <label for="comment">để lại bình luận của bạn:</label>
-            <textarea class="form-control" rows="3" id="text_comment" maxlength="200" required="required"
-                name="noi_dung_bl_them"></textarea>
+            <textarea class="form-control" rows="3" id="text_comment" maxlength="200" required="required" name="noi_dung_bl_them"></textarea>
             <input type="hidden" name='id_sp_bl_them' value="<?= $sp_chi_tiet ?>">
             <button class="btn btn-success">bình luận</button>
         </form>
@@ -334,23 +352,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $display_1 = 'none';
                 } //&& $tennguoidung[$cmt] == $_SESSION['login']['tennguoidung'])
         ?>
-        <div class="flex">
-            <div id="thong_tin_ng_dung">
-                <img id="avatar" src="images/avt.jpg" height="55" width="55">
-                <p id="tennguoidung"><?= $email_bl[$cmt] ?></p>
-            </div>
-            <p id="noidung"><?= $noi_dung_binh_luan[$cmt] ?>
-                <?php if ($email_bl[$cmt] == isset($_SESSION['login']['email'])) {; ?>
+                <div class="flex">
+                    <div id="thong_tin_ng_dung">
+                        <img id="avatar" src="images/avt.jpg" height="55" width="55">
+                        <p id="tennguoidung"><?= $email_bl[$cmt] ?></p>
+                    </div>
+                    <p id="noidung"><?= $noi_dung_binh_luan[$cmt] ?>
+                        <?php if ($email_bl[$cmt] == isset($_SESSION['login']['email'])) {; ?>
 
-                <button id="sua_xoa" style="display:<?= $display_1 ?>;">...</button>
-            <ul id="ul_sua_xoa" style="display: none;">
-                <li id="click_sua_binh_luan" class="btn btn-link"><span>Sửa</span></li>
+                            <button id="sua_xoa" style="display:<?= $display_1 ?>;">...</button>
+                    <ul id="ul_sua_xoa" style="display: none;">
+                        <li id="click_sua_binh_luan" class="btn btn-link"><span>Sửa</span></li>
 
-                <?php echo " <li><a href='xu_ly_cmt.php?id_sp_xoa_bl=$id_binh_luan[$cmt]&&id_sp=$sp_chi_tiet'>xóa</a></li> " ?>
-                <?php } ?>
-            </ul>
-            </p>
-        </div>
+                        <?php echo " <li><a href='xu_ly_cmt.php?id_sp_xoa_bl=$id_binh_luan[$cmt]&&id_sp=$sp_chi_tiet'>xóa</a></li> " ?>
+                    <?php } ?>
+                    </ul>
+                    </p>
+                </div>
         <?php }
         } else {
             echo "<h3>chưa có bình luận nào</h3>";
@@ -362,41 +380,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Dùng Ajax xử lý bất đồng bộ -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function() {
-        $(".btn-add-to-cart").click(function() {
-            // alert("Nút đã bấm");
-            let id = $(this).data('id');
-            $.ajax({
-                type: "GET",
-                url: "them_gio_hang.php",
-                data: {
-                    id
-                },
-                // dataType: "dataType",
-                success: function(response) {
-                    if (response == 1) {
-                        // alert("Thêm giỏ hàng thành công");
-                        // header('location:index.php');
+        $(document).ready(function() {
+            $(".btn-add-to-cart").click(function() {
+                // alert("Nút đã bấm");
+                let id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    url: "them_gio_hang.php",
+                    data: {
+                        id
+                    },
+                    // dataType: "dataType",
+                    success: function(response) {
+                        if (response == 1) {
+                            // alert("Thêm giỏ hàng thành công");
+                            // header('location:index.php');
 
-                        window.alert('Thêm giỏ hàng thành công');
-                        window.location.href = 'index.php';
+                            window.alert('Thêm giỏ hàng thành công');
+                            window.location.href = 'index.php';
 
 
 
-                    } else {
-                        alert(response);
+                        } else {
+                            alert(response);
+                        }
+
                     }
+                });
 
-                }
+
+                // alert("bn đã bấm id: "+id);
+
+
+
             });
-
-
-            // alert("bn đã bấm id: "+id);
-
-
-
         });
-    });
     </script>
 </body>
 

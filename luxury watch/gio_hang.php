@@ -1,9 +1,14 @@
 <?php
+// require('header.php');
 session_start();
-if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
+if (isset($_SESSION['login'])) {
     echo "Xin chào " . $_SESSION['ten_dang_nhap'];
 } else {
-    echo "Tài khoản";
+    // echo "Tài khoản";
+    echo "<script type='text/javascript'>
+    window.alert('Bạn chưa thêm sản phẩm nào vào giỏ hàng. Điều hướng về trang chủ');
+    window.location.href='index.php';
+</script>";
 }
 if (empty($_SESSION['gio_hang'])) {
     echo "<script type='text/javascript'>
@@ -25,6 +30,23 @@ $sum = 0;
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
+<style>
+      form {
+        width: 600px;
+        margin: 20px auto;
+        border-radius: 5px;
+        background-color: #003366;
+        padding: 10px;
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    label {
+        /* color:#98B4D4; //023e8a */
+        color: white;
+        font-weight: 470;
+
+    }
+</style>
 
 <body>
 
@@ -95,7 +117,7 @@ $sum = 0;
 <div class="cart-table-button m-t-10">
     <div class="cart-table-button--left"> </div>
     <div class="cart-total">
-        <strong class="cart-total-title">Tổng Cộng:$</strong>
+        <strong class="cart-total-title">Tổng Cộng:VND</strong>
         <span id="span-total">
             <?php echo $total; ?></span>
         <br> <br>
@@ -256,3 +278,4 @@ $each = mysqli_fetch_array($ketQuaTruyVan);
 </body>
 
 </html>
+
