@@ -19,22 +19,22 @@ require("header.php");
     <meta name="keywords" content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript">
-    addEventListener("load", function() {
-        setTimeout(hideURLbar, 0);
-    }, false);
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
     </script>
     <!--start-menu-->
     <script src="js/simpleCart.min.js"> </script>
     <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="js/memenu.js"></script>
     <script>
-    $(document).ready(function() {
-        $(".memenu").memenu();
-    });
+        $(document).ready(function() {
+            $(".memenu").memenu();
+        });
     </script>
     <!--dropdown-->
     <script src="js/jquery.easydropdown.js"></script>
@@ -63,23 +63,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--Slider-Starts-Here-->
     <script src="js/responsiveslides.min.js"></script>
     <script>
-    $(function() {
-        // Slideshow 4
-        $("#slider4").responsiveSlides({
-            auto: true,
-            pager: true,
-            nav: true,
-            speed: 500,
-            namespace: "callbacks",
-            before: function() {
-                $('.events').append("<li>before event fired.</li>");
-            },
-            after: function() {
-                $('.events').append("<li>after event fired.</li>");
-            }
-        });
+        $(function() {
+            // Slideshow 4
+            $("#slider4").responsiveSlides({
+                auto: true,
+                pager: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                before: function() {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function() {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
 
-    });
+        });
     </script>
     <!--End-slider-script-->
     <!--about-starts-->
@@ -119,75 +119,108 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <!--about-end-->
     <?php
-	// Ket noi CSDL
-	require('connect.php');
-	// Ket noi CSDL
-	$tim_kiem = '';
-	if (isset($_GET['tim_kiem'])) {
-		$tim_kiem = $_GET['tim_kiem'];
-	};
+    // Ket noi CSDL
+    require('connect.php');
+    // Ket noi CSDL
 
-	$sql = "SELECT sp.masanpham, sp.tensanpham, lsp.tenloaisanpham, sp.anh, sp.dongia
+    $trang = 1;
+    if (isset($_GET['trang'])) {
+        $trang = $_GET['trang'];
+    }
+    $tim_kiem = '';
+    if (isset($_GET['tim_kiem'])) {
+        $tim_kiem = $_GET['tim_kiem'];
+    };
+    $sql_so_tin_tuc = "SELECT count(*) FROM `tbl_san_pham` WHERE tensanpham LIKE '%$tim_kiem%'";
+    $mang_so_tin_tuc = mysqli_query($con, $sql_so_tin_tuc);
+    $ket_qua = mysqli_fetch_array($mang_so_tin_tuc);
+    $so_tin_tuc = $ket_qua['count(*)'];
+    $so_tin_tuc_tren_mot_trang = 6;
+    $so_trang = ceil($so_tin_tuc / $so_tin_tuc_tren_mot_trang);
+    $bo_qua = ((int)$so_tin_tuc_tren_mot_trang * ((int)$trang - 1));
+
+
+    $sql = "SELECT sp.masanpham, sp.tensanpham, lsp.tenloaisanpham, sp.anh, sp.dongia
         FROM `tbl_san_pham` AS sp
         INNER JOIN `tbl_loai_san_pham` AS lsp 
             ON sp.maloaisanpham = lsp.maloaisanpham WHERE sp.tensanpham LIKE '%$tim_kiem%'
-        ORDER BY sp.maloaisanpham ASC LIMIT 0,6";
+        ORDER BY sp.maloaisanpham ASC LIMIT $so_tin_tuc_tren_mot_trang OFFSET $bo_qua";
 
-	// echo $sql;
+    // echo $sql;
 
-	$ketQuaTruyVan = $con->query($sql);
-	?>
+    $ketQuaTruyVan = $con->query($sql);
+    ?>
 
     <?php
-	if ($ketQuaTruyVan->num_rows > 0) {
-		$i = 0;
-		while ($sp = $ketQuaTruyVan->fetch_assoc()) {
-			if ($i % 3 == 0) {
-	?>
-    <div class="container">
-        <div class="row">
-            <?php
-				}
-					?>
+    if ($ketQuaTruyVan->num_rows > 0) {
+        $i = 0;
+        while ($sp = $ketQuaTruyVan->fetch_assoc()) {
+            if ($i % 3 == 0) {
+    ?>
+                <div class="container">
+                    <div class="row">
+                    <?php
+                }
+                    ?>
 
-					<div class="col-sm-4 product-left">
-						<div class="panel panel-primary">
-							<div class="panel-heading"><?php echo $sp['tensanpham']; ?></div>
-							<div class="panel-body">
-								<a href="chi_tiet_san_pham.php?id=<?php echo $sp['masanpham']; ?>">
-									<!-- <img class="img-responsive zoom-img" src="https://www.casio.com/content/dam/casio/product-info/locales/vn/vi/timepiece/product/watch/G/GM/GM1/gm-110earth-1a/assets/GM-110EARTH-1A.png.transform/main-visual-pc/image.png" class="img-responsive" style="height:120px;" alt="Image"> -->
-									<img class="img-responsive zoom-img" src="images/<?php echo $sp['anh']; ?>" class="img-responsive" style="height:150px;" alt="Image">
+                    <div class="col-sm-4 product-left">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><?php echo $sp['tensanpham']; ?></div>
+                            <div class="panel-body">
+                                <a href="chi_tiet_san_pham.php?id=<?php echo $sp['masanpham']; ?>">
+                                    <!-- <img class="img-responsive zoom-img" src="https://www.casio.com/content/dam/casio/product-info/locales/vn/vi/timepiece/product/watch/G/GM/GM1/gm-110earth-1a/assets/GM-110EARTH-1A.png.transform/main-visual-pc/image.png" class="img-responsive" style="height:120px;" alt="Image"> -->
+                                    <img class="img-responsive zoom-img" src="images/<?php echo $sp['anh']; ?>" class="img-responsive" style="height:150px;" alt="Image">
 
-								</a>
+                                </a>
 
-							</div>
-							<div class="panel-footer">
-								<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$<?php echo $sp['dongia']; ?></span></h4>
-							</div>
-						</div>
-					</div>
-					<?php
-					if ($i % 3 == 2) {
-					?>
+                            </div>
+                            <div class="panel-footer">
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$<?php echo $sp['dongia']; ?></span></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    if ($i % 3 == 2) {
+                    ?>
+                    </div>
+                </div><br>
+    <?php
+                    }
+                    $i++;
+                }
+            }
+    ?>
+    <?php
+    if ($i % 3 == 1) {
+    ?>
         </div>
-    </div><br>
+        </div><br>
     <?php
-					}
-					$i++;
-				}
-			}
-	?>
-    <?php
-	if ($i % 3 == 1) {
-	?>
-    </div>
-    </div><br>
-    <?php
-	}
-	$i++;
+    }
+    $i++;
 
 
-	?>
+    ?>
+
+    <nav style="display:flex; flex-direction:row; justify-content:center;align-items:center;margin-top:10px;margin-bottom:20px;">
+        <?php for ($j = 1; $j <= $so_trang; $j++) { ?>
+            <a href="?trang=<?php echo $j ?>?$tim_kiem=<?php echo $tim_kiem ?>" style="text-decoration: none;
+  background: #003999;
+  border-radius: 5px;
+  color: white;
+  padding: 3px 8px 8px 8px;margin: 3px 8px 8px 8px; ">
+
+                <?php echo $j; ?></a>
+        <?php } ?>
+
+
+    </nav>
+
+
+
+
+
+
 
 
 

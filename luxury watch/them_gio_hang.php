@@ -18,7 +18,7 @@ try {
         $_SESSION['gio_hang'][$id]['tensanpham']=$row['tensanpham'];
         $_SESSION['gio_hang'][$id]['gia_ban']=$row['dongia'];
         $_SESSION['gio_hang'][$id]['anh']=$row['anh'];
-        $_SESSION['gio_hang'][$id]['soluongmua']=1;
+        $_SESSION['gio_hang'][$id]['soluongmua']=0;
         // $_SESSION['gio_hang'][$id] = array(
         //     // 'ma' => $row['id'],
         //     'tensanpham' => $row['tensanpham'],

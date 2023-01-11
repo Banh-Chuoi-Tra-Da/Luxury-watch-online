@@ -29,8 +29,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--start-menu-->
     <script src="js/simpleCart.min.js"> </script>
     <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="../luxury watch/css/binhluan.css">
+    <link rel="stylesheet" href="css/bl.css">
     <script type="text/javascript" src="js/memenu.js"></script>
+    <script src="js/binhluan.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>

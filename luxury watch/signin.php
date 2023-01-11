@@ -13,10 +13,10 @@ if (isset($_COOKIE['remember'])) {
     $_SESSION['name'] = $each['names'];
   }
 }
-if (isset($_SESSION['id'])) {
-  header('location:index.php');
-  exit;
-}
+// if (isset($_SESSION['id'])) {
+//   header('location:index.php');
+//   exit;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +33,23 @@ if (isset($_SESSION['id'])) {
 
   <script src="registerValidationSignin.js"></script>
 </head>
+<style>
+      form {
+        width: 600px;
+        margin: 20px auto;
+        border-radius: 5px;
+        background-color: #003366;
+        padding: 10px;
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    label {
+        /* color:#98B4D4; //023e8a */
+        color: white;
+        font-weight: 470;
+
+    }
+</style>
 
 
 <body>

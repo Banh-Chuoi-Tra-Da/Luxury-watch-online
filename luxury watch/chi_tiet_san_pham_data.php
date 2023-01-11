@@ -90,11 +90,12 @@ if($data_bl->num_rows>0){
 else{
     $so_bl = 0;
 }
-//
+
+//mua hang moi cho binh luan
 if (isset($_SESSION['login'])) {
     $email=$_SESSION['login']['email'];
     $sql_dmh = " SELECT mat_hang_id, nguoi_dung_id,email FROM `tbl_chi_tiet_hoa_don` as ct 
-    JOIN tbl_hoa_don as hd ON ct.id= hd.id JOIN tbl_nguoi_dung as nd ON hd.nguoi_dung_id=nd.id WHERE email='$email' and mat_hang_id=$masanpham[$sp_hien_thi] ; ";
+    JOIN tbl_hoa_don as hd ON ct.hoa_don_id= hd.id JOIN tbl_nguoi_dung as nd ON hd.nguoi_dung_id=nd.id WHERE email='$email' and mat_hang_id=$masanpham[$sp_hien_thi] and trang_thai_bl=0; ";
     $data_dmh = $con->query($sql_dmh);
     if ($data_dmh->num_rows > 0) {
         $cho_binh_luan = true;
@@ -113,11 +114,11 @@ if (isset($_SESSION['login'])) {
     $sql_dbl = " SELECT * FROM `tbl_binh_luan` WHERE masanpham=$sp_chi_tiet and email='$email'; ";
     $data_dbl = $con->query($sql_dbl);
     if ($data_dbl->num_rows > 0) {
-        $da_binh_luan = true;
+        // $da_binh_luan = true;
         $data_bl_sua = $data_dbl->fetch_assoc();
     }
-    else {
-        $da_binh_luan = false;
-    }
+    // else {
+    //     $da_binh_luan = false;
+    // }
 
 }
