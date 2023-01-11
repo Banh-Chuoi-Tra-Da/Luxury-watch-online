@@ -2,7 +2,7 @@
 // require('header.php');
 session_start();
 if (isset($_SESSION['login'])) {
-    echo "Xin chào " . $_SESSION['ten_dang_nhap'];
+    echo "Giỏ hàng của bạn: " . $_SESSION['ten_dang_nhap'];
 } else {
     // echo "Tài khoản";
     echo "<script type='text/javascript'>
@@ -32,8 +32,8 @@ $sum = 0;
 </head>
 <style>
       form {
-        width: 600px;
-        margin: 20px auto;
+        width: 1300px;
+        margin: 30px auto;
         border-radius: 5px;
         background-color: #003366;
         padding: 10px;
@@ -45,6 +45,10 @@ $sum = 0;
         color: white;
         font-weight: 470;
 
+    }
+    .cart-total{
+        /* background-color: antiquewhite; */
+        margin-left: 310px;
     }
 </style>
 
@@ -114,15 +118,15 @@ $sum = 0;
 </table>
 </div>
 
-<div class="cart-table-button m-t-10">
-    <div class="cart-table-button--left"> </div>
+
     <div class="cart-total">
         <strong class="cart-total-title">Tổng Cộng:VND</strong>
         <span id="span-total">
             <?php echo $total; ?></span>
         <br> <br>
     </div>
-</div>
+    <a href="don_hang.php">Lịch sử đơn hàng</a>
+
 
 <?php
 $tongtien_paypal=round($total/23000); // Lấy ra số tiền cần thanh toán, đổi qua USD

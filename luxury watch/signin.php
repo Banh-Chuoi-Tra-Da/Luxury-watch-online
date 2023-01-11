@@ -13,10 +13,10 @@ if (isset($_COOKIE['remember'])) {
     $_SESSION['name'] = $each['names'];
   }
 }
-// if (isset($_SESSION['id'])) {
-//   header('location:index.php');
-//   exit;
-// }
+if (isset($_SESSION['id'])) {
+  header('location:index.php');
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

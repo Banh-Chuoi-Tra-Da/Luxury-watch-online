@@ -15,8 +15,7 @@ session_start();
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
     <script type="application/x-javascript">
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);
@@ -34,6 +33,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/binhluan.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
     <script>
     $(document).ready(function() {
         $(".memenu").memenu();
@@ -112,7 +114,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <?php
                                     if (isset($_SESSION["ten_dang_nhap"])) {
                                     ?>
-                                        <li><a href="#">Thông tin tài khoản</a></li>
+                                        <li><a href="thong_tin_tai_khoan.php">Thông tin tài khoản</a></li>
+                                        <li><a href="don_hang.php">Lịch sử đơn hàng</a></li>
                                         <li><a href="signout.php">Đăng Xuất</a></li>
                                         <!-- <li><a href="dang_xuat.php">Đăng xuất</a></li> -->
                                     <?php
@@ -120,6 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     ?>
                                         <li><a href="signin.php">Đăng nhập</a></li>
                                         <li><a href="register.php">Đăng ký</a></li>
+                                        
                                     <?php
                                     }
                                     ?>
@@ -317,4 +321,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </html>
 <!--top-header-->
-
