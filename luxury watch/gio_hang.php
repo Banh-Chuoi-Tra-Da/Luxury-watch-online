@@ -6,7 +6,7 @@ if (isset($_SESSION['login'])) {
 } else {
     // echo "Tài khoản";
     echo "<script type='text/javascript'>
-    window.alert('Bạn chưa thêm sản phẩm nào vào giỏ hàng. Điều hướng về trang chủ');
+    window.alert('Bạn chưa đăng nhập');
     window.location.href='index.php';
 </script>";
 }
@@ -278,4 +278,3 @@ $each = mysqli_fetch_array($ketQuaTruyVan);
 </body>
 
 </html>
-

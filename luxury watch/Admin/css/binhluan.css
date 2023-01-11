@@ -1,0 +1,42 @@
+.flex{
+    display: flex;
+    /* justify-content: space-around; */
+}
+#avatar{
+    border-radius: 50%;
+}
+#tennguoidung{
+    font-weight:bold;
+    font-size: 15px;
+    font-style: italic;
+    color: rgb(255, 153, 127);
+}
+#binhluan{
+    margin-bottom: 15px;
+}
+#noidung{
+
+    font-size: 20px;
+    padding-top: 40px;
+   margin-left: 25px;
+   /* border-bottom: 0.1px solid rgb(128, 117, 117); */
+}
+#form_cmt{
+    margin-bottom: 10px;
+}
+#text_comment{
+    width: 1170px;
+    height: 90px;
+}
+
+#sua_xoa ul{
+    /* display: none; */
+  display: inline-block;
+}
+#sua_xoa ul li{
+    text-decoration: none;
+}
+div.flex{
+    padding-top: 5px;
+    border-bottom: 0.5px solid bisque;
+}

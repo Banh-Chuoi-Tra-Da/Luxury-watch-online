@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <style>
     /* 9 */
-    .btn-9 {
+    /* .btn-9 {
         margin-top: 10px;
         border: none;
         transition: all 0.3s ease;
@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         background-color: #1fd1f9;
         background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
         transition: all 0.3s ease;
-    }
+    } */
 
    
 </style>
