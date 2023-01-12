@@ -31,11 +31,11 @@
 				</div>
 				<div class="col-md-3 infor-left">
 					<h3>Store Information</h3>
-					<h4>The company name,
-						<span>Lorem ipsum dolor,</span>
-						Glasglow Dr 40 Fe 72.</h4>
-					<h5>+955 123 4567</h5>	
-					<p><a href="mailto:example@email.com">contact@example.com</a></p>
+					<h4>Kasio Luxury Watch Store
+						<span>The best seller watch</span>
+						12 Chua Boc Street, Hanoi.</h4>
+					<h5>+84 123 4567</h5>	
+					<p><a href="mailto:example@email.com">lehoang242002@gmail.com</a></p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -53,7 +53,7 @@
 					</form>
 				</div>
 				<div class="col-md-6 footer-right">					
-					<p>© 2022 Luxury Watches. All Rights Reserved | Design by Ha Huu Luong </p>
+					<p>© 2023 Kasio Luxury Watches. All Rights Reserved | Design by Ha Huu Luong </p>
 				</div>
 				<div class="clearfix"></div>
 			</div>

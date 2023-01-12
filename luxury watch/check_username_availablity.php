@@ -11,6 +11,7 @@
 
 	if ($result->num_rows > 0) {
 	echo '<div class="alert alert-danger"><b>Oh no!</b> Tên người dùng đã có òi </div>';
+	echo "<script>$('#form_username').val('')</script>";
 	} 
 	else {
 	echo '<div class="alert alert-success"><b>Tuyệt vời</b> Bạn có thể sử dụng tên người dùng này.</div>';

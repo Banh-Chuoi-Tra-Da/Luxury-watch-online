@@ -9,6 +9,7 @@
 
 		if ($result->num_rows > 0) {
 		echo '<div class="alert alert-danger"><b>Haizz!</b> Email này cũng đã có òi bạn ơii </div>';
+		echo "<script>$('#form_email').val('')</script>";
 		} 
 		else {
 		echo '<div class="alert alert-success"><b>Chà,</b> Cuối cùng bạn cũng có thể sử dụng email này.</div>';

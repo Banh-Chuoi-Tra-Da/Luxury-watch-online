@@ -149,7 +149,7 @@ session_start();
     <!--top-header-->
     <!--start-logo-->
     <div class="logo">
-        <a href="index.html">
+        <a href="index.php">
             <h1>Luxury Watches</h1>
         </a>
     </div>

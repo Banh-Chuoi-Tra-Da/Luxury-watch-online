@@ -36,11 +36,12 @@ if (isset($_SESSION['id'])) {
 <style>
       form {
         width: 600px;
-        margin: 20px auto;
+        margin: 15% auto;
         border-radius: 5px;
-        background-color: #003366;
+        background-color: black;
         padding: 10px;
         box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4);
+
     }
 
     label {
@@ -49,6 +50,13 @@ if (isset($_SESSION['id'])) {
         font-weight: 470;
 
     }
+    body {
+          background-image: url('images/background.png');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+    }
+
 </style>
 
 
@@ -71,6 +79,10 @@ if (isset($_SESSION['id'])) {
       </div>
     </div>
     <button type="submit" class="btn btn-default" name="submit">Đăng nhập</button>
+    <br> <br>
+    <div>
+      <p style="color: white">Chưa có tài khoản? <a href="register.php">Đăng ký</a></p>
+    </div>
   </form>
 </body>
 
