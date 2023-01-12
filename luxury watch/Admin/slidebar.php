@@ -45,13 +45,19 @@
     span{
         padding-right: 10px;
     }
+    a{
+        color: white;
+    }
    </style> 
 </head>
 <body>
 <div class="container-fluid">
     <div class="row content">
-    <div class="col-sm-3 sidenav">
-        <h4>TRANG CHỦ QUẢN TRỊ</h4>
+    <div class="col-sm-3 sidenav" style="background-image: url('../images/background2.png');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 50%;">
+        <h4 style="color: white">TRANG CHỦ QUẢN TRỊ</h4>
       <ul class="nav nav-pills nav-stacked">
         <li><a href="danh_sach_loai_san_pham.php"><img src="Icons/type.png"><span></span>Danh sách loại sản phẩm</a></li>
         <li><a href="danh_sach_san_pham.php"><img src="Icons/product.png"><span></span>Danh sách sản phẩm</a></li>

@@ -46,12 +46,18 @@
     span{
         padding-right: 10px;
     }
+    body{
+/*          background-image: url('../images/background.png');*/
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+    }
   </style>
 </head>
 <body>
 	<!--<p>Xin chào :<?php echo $_SESSION['dangnhap'] ?> <a href="?login=dangxuat">Đăng xuất</a></p> -->
 
-	<button type="button" class="btn btn-warning"><a href="?login=dangxuat">Đăng xuất</a></button>
+	<button type="button" class="btn btn-warning"><a href="../signout.php">Đăng xuất</a></button>
 	<?php include("slidebar.php");?>
   <div class="col-sm-9">
       <h4><small>GIỚI THIỆU VỀ CHÚNG TÔI</small></h4>

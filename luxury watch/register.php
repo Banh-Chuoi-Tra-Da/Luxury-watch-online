@@ -56,7 +56,7 @@
       <input type="password" class="form-control" id="form_conpwd" placeholder="Xác nhận mật khẩu">
     </div>
     <!-- Thêm SDT, Dia Chi -->
-    <div class="form-group">
+<!--     <div class="form-group">
       <label for="exampleInputPassword1">Số điện thoại</label>
       <input type="text" name="phone_number" class="form-control" id="exampleInputPassword1" placeholder="Số điện thoại">
 
@@ -64,7 +64,7 @@
     <div class="form-group">
       <label for="exampleInputPassword1">Địa chỉ</label>
       <input type="text" name="address" class="form-control" id="exampleInputPassword1" placeholder="Địa chỉ">
-    </div>
+    </div> -->
     <button type="submit" class="btn btn-default" name="submit">Đăng ký</button>
     <br>
     <a href="Features/github-login/index.php"><img src="Features/github-login/images/github-login.jpg" style="width: 190px; height: auto;"></a>

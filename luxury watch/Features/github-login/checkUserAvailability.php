@@ -1,7 +1,7 @@
 <?php 
 	// Thêm người dùng từ OAuth2 sang tbl_nguoi_dung để database có thống nhất username
 	function checkUserAvailability($data = array()){
-		$sql = "SELECT * FROM tbl_nguoi_dung WHERE names = '".$data['username']."' AND email = '".$data['email']."'";
+		$sql = "SELECT * FROM tbl_nguoi_dung WHERE names = '".$data['username']."'";
 		require("../../connect.php");
 		$ketQuaTruyVan = $con->query($sql);
 

@@ -28,7 +28,7 @@ define('DB_USER_TBL', 'tbl_user_oauth');
 // GitHub API configuration 
 define('CLIENT_ID', '2c0c89beb83ce3397199'); 
 define('CLIENT_SECRET', '0b5d468e561418a843408c42329ecc936e785801'); 
-define('REDIRECT_URL', 'http://localhost/Luxury-watch-online/luxury watch/Features/github-login'); 
+define('REDIRECT_URL', 'http://localhost/exs/Luxury-watch-online/luxury watch/Features/github-login'); 
  
 // Start session 
 if(!session_id()){ 
