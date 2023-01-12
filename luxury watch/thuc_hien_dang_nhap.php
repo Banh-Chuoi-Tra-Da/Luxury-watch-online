@@ -28,8 +28,10 @@ if ($ketQuaTruyVan->num_rows == 1) {
         mysqli_query($con, $sql);
         setcookie('remember', $token, time() + 60 * 60 * 24 * 30);
     }
-    header('location:index.php?tb=Dang nhap thanh cong');
+    echo "<script>alert(\"Đăng nhập thành công\")</script>";
+    echo "<script> window.location.replace(\"index.php\")</script>";
 } else {
-    header('location:signin.php?error=Sai thong tin');
+    echo "<script>alert(\"Sai mật khẩu hoặc tài khoản\")</script>";
+    echo "<script> window.location.replace(\"signin.php\")</script>";
 }
 ?>

@@ -39,23 +39,42 @@ if(isset($accessToken)){
          
         // Insert or update user data to the database 
         $gitUserData['oauth_provider'] = 'github'; 
-        $userData = $user->checkUser($gitUserData); 
- 
+        $userData = $user->checkUser($gitUserData);
+
+        // Thêm người dùng từ OAuth2 sang tbl_nguoi_dung để database có thống nhất username
+        require("checkUserAvailability.php");
+        checkUserAvailability($gitUserData);
+        
         // Storing user data in the session 
         $_SESSION['userData'] = $userData; 
  
-        // Render Github profile data 
-        $output     = '<h2>GitHub Account Details</h2>'; 
-        $output .= '<div class="ac-data">'; 
-        $output .= '<img src="'.$userData['picture'].'">'; 
-        $output .= '<p><b>ID:</b> '.$userData['oauth_uid'].'</p>'; 
-        $output .= '<p><b>Name:</b> '.$userData['name'].'</p>'; 
-        $output .= '<p><b>Login Username:</b> '.$userData['username'].'</p>'; 
-        $output .= '<p><b>Email:</b> '.$userData['email'].'</p>'; 
-        $output .= '<p><b>Location:</b> '.$userData['location'].'</p>'; 
-        $output .= '<p><b>Profile Link:</b> <a href="'.$userData['link'].'" target="_blank">Click to visit GitHub page</a></p>'; 
-        $output .= '<p>Logout from <a href="logout.php">GitHub</a></p>'; 
-        $output .= '</div>'; 
+        // // Render Github profile data 
+        // $output     = '<h2>GitHub Account Details</h2>'; 
+        // $output .= '<div class="ac-data">'; 
+        // $output .= '<img src="'.$userData['picture'].'">'; 
+        // $output .= '<p><b>ID:</b> '.$userData['oauth_uid'].'</p>'; 
+        // $output .= '<p><b>Name:</b> '.$userData['name'].'</p>'; 
+        // $output .= '<p><b>Login Username:</b> '.$userData['username'].'</p>'; 
+        // $output .= '<p><b>Email:</b> '.$userData['email'].'</p>'; 
+        // $output .= '<p><b>Location:</b> '.$userData['location'].'</p>'; 
+        // $output .= '<p><b>Profile Link:</b> <a href="'.$userData['link'].'" target="_blank">Click to visit GitHub page</a></p>'; 
+        // $output .= '<p>Logout from <a href="logout.php">GitHub</a></p>'; 
+        // $output .= '</div>'; 
+        $_SESSION['ten_dang_nhap'] = $userData['username'];
+
+        // Lay id tu tbl_nguoi_dung
+        require("../../connect.php");
+        $tenDangNhap = $_SESSION['ten_dang_nhap'];
+        $sql = "SELECT * FROM tbl_nguoi_dung WHERE names = '".$tenDangNhap."'";
+        $ketQuaTruyVan = $con->query($sql);
+        $each = mysqli_fetch_array($ketQuaTruyVan);
+        if ($ketQuaTruyVan->num_rows == 1) {
+            $_SESSION['id'] = $each['id'];
+        }
+
+        echo "<script>alert(\"Đăng nhập thành công\")</script>";
+        echo "<script> window.location.replace(\"../../index.php\")</script>";
+
     }else{ 
         $output = '<h3 style="color:red">Something went wrong, please try again!</h3>'; 
     }  
@@ -83,11 +102,8 @@ if(isset($accessToken)){
     $authUrl = $gitClient->getAuthorizeURL($_SESSION['state']); 
      
     // Render Github login button 
-    $output = '<a href="'.htmlspecialchars($authUrl).'"><img src="images/github-login.jpg"></a>';
+    // $output = '<a href="'.htmlspecialchars($authUrl).'"><img src="images/github-login.jpg"></a>';
+    $output = htmlspecialchars($authUrl);
+    header('location:'.$output.'');
 } 
 ?>
-
-<div class="container">
-    <!-- Display login button / GitHub profile information -->
-    <?php echo $output; ?>
-</div>

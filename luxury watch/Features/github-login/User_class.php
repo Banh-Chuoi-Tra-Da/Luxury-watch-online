@@ -83,6 +83,8 @@ class User {
                 // Insert user data in the database 
                 $query = "INSERT INTO ".$this->userTbl." (".$columns.") VALUES (".$values.")"; 
                 $insert = $this->db->query($query); 
+
+
             } 
              
             // Get user data from the database 
