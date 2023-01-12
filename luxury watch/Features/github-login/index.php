@@ -39,8 +39,12 @@ if(isset($accessToken)){
          
         // Insert or update user data to the database 
         $gitUserData['oauth_provider'] = 'github'; 
-        $userData = $user->checkUser($gitUserData); 
- 
+        $userData = $user->checkUser($gitUserData);
+
+        // Thêm người dùng từ OAuth2 sang tbl_nguoi_dung để database có thống nhất username
+        require("checkUserAvailability.php");
+        checkUserAvailability($gitUserData);
+        
         // Storing user data in the session 
         $_SESSION['userData'] = $userData; 
  
@@ -57,6 +61,17 @@ if(isset($accessToken)){
         // $output .= '<p>Logout from <a href="logout.php">GitHub</a></p>'; 
         // $output .= '</div>'; 
         $_SESSION['ten_dang_nhap'] = $userData['username'];
+
+        // Lay id tu tbl_nguoi_dung
+        require("../../connect.php");
+        $tenDangNhap = $_SESSION['ten_dang_nhap'];
+        $sql = "SELECT * FROM tbl_nguoi_dung WHERE names = '".$tenDangNhap."'";
+        $ketQuaTruyVan = $con->query($sql);
+        $each = mysqli_fetch_array($ketQuaTruyVan);
+        if ($ketQuaTruyVan->num_rows == 1) {
+            $_SESSION['id'] = $each['id'];
+        }
+
         echo "<script>alert(\"Đăng nhập thành công\")</script>";
         echo "<script> window.location.replace(\"../../index.php\")</script>";
 

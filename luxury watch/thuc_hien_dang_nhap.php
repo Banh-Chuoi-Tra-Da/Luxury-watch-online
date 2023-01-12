@@ -29,7 +29,7 @@ if ($ketQuaTruyVan->num_rows == 1) {
         setcookie('remember', $token, time() + 60 * 60 * 24 * 30);
     }
     echo "<script>alert(\"Đăng nhập thành công\")</script>";
-    echo "<script> window.location.replace(\"http://localhost/Luxury-watch-online/luxury%20watch/index.php\")</script>";
+    echo "<script> window.location.replace(\"index.php\")</script>";
 } else {
     echo "<script>alert(\"Sai mật khẩu hoặc tài khoản\")</script>";
     echo "<script> window.location.replace(\"signin.php\")</script>";
