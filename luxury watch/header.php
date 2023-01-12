@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('danhmuc_data.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +30,7 @@ session_start();
     <script src="js/simpleCart.min.js"> </script>
     <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="css/bl.css">
+    <link rel="stylesheet" href="css/danhmuc.css">
     <script type="text/javascript" src="js/memenu.js"></script>
     <script src="js/binhluan.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -161,136 +163,17 @@ session_start();
                 <div class="col-md-9 header-left">
                     <div class="top-nav">
                         <ul class="memenu skyblue">
-                            <li class="active"><a href="index.html">Home</a></li>
-                            <li class="grid"><a href="#">Men</a>
-                                <div class="mepanel">
-                                    <div class="row">
-                                        <div class="col1 me-one">
-                                            <h4>Shop</h4>
-                                            <ul>
-                                                <li><a href="products.html">New Arrivals</a></li>
-                                                <li><a href="products.html">Blazers</a></li>
-                                                <li><a href="products.html">Swem Wear</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Handbags</a></li>
-                                                <li><a href="products.html">T-Shirts</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">My Shopping Bag</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Style Zone</h4>
-                                            <ul>
-                                                <li><a href="products.html">Shoes</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">Brands</a></li>
-                                                <li><a href="products.html">Coats</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Trousers</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Popular Brands</h4>
-                                            <ul>
-                                                <li><a href="products.html">499 Store</a></li>
-                                                <li><a href="products.html">Fastrack</a></li>
-                                                <li><a href="products.html">Casio</a></li>
-                                                <li><a href="products.html">Fossil</a></li>
-                                                <li><a href="products.html">Maxima</a></li>
-                                                <li><a href="products.html">Timex</a></li>
-                                                <li><a href="products.html">TomTom</a></li>
-                                                <li><a href="products.html">Titan</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                        <li class="active"><a href="index.php">Home</a></li>
+                            <li class="grid"><a href="danhmuc.php?id_tuoi=<?=$ma_sp_theo_gt_full[0]?>">Danh mục sản
+                                    phẩm</a>
                             </li>
-                            <li class="grid"><a href="#">Women</a>
-                                <div class="mepanel">
-                                    <div class="row">
-                                        <div class="col1 me-one">
-                                            <h4>Shop</h4>
-                                            <ul>
-                                                <li><a href="products.html">New Arrivals</a></li>
-                                                <li><a href="products.html">Blazers</a></li>
-                                                <li><a href="products.html">Swem Wear</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Handbags</a></li>
-                                                <li><a href="products.html">T-Shirts</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">My Shopping Bag</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Style Zone</h4>
-                                            <ul>
-                                                <li><a href="products.html">Shoes</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">Brands</a></li>
-                                                <li><a href="products.html">Coats</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Trousers</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Popular Brands</h4>
-                                            <ul>
-                                                <li><a href="products.html">499 Store</a></li>
-                                                <li><a href="products.html">Fastrack</a></li>
-                                                <li><a href="products.html">Casio</a></li>
-                                                <li><a href="products.html">Fossil</a></li>
-                                                <li><a href="products.html">Maxima</a></li>
-                                                <li><a href="products.html">Timex</a></li>
-                                                <li><a href="products.html">TomTom</a></li>
-                                                <li><a href="products.html">Titan</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                            <li class="grid"><a href="danhmuc.php?id_ncc=<?=$ma_ncc_full[0]?>">Hãng</a>
+
                             </li>
-                            <li class="grid"><a href="#">Kids</a>
-                                <div class="mepanel">
-                                    <div class="row">
-                                        <div class="col1 me-one">
-                                            <h4>Shop</h4>
-                                            <ul>
-                                                <li><a href="products.html">New Arrivals</a></li>
-                                                <li><a href="products.html">Blazers</a></li>
-                                                <li><a href="products.html">Swem Wear</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Handbags</a></li>
-                                                <li><a href="products.html">T-Shirts</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">My Shopping Bag</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Style Zone</h4>
-                                            <ul>
-                                                <li><a href="products.html">Shoes</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">Brands</a></li>
-                                                <li><a href="products.html">Coats</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Trousers</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Popular Brands</h4>
-                                            <ul>
-                                                <li><a href="products.html">499 Store</a></li>
-                                                <li><a href="products.html">Fastrack</a></li>
-                                                <li><a href="products.html">Casio</a></li>
-                                                <li><a href="products.html">Fossil</a></li>
-                                                <li><a href="products.html">Maxima</a></li>
-                                                <li><a href="products.html">Timex</a></li>
-                                                <li><a href="products.html">TomTom</a></li>
-                                                <li><a href="products.html">Titan</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            <!-- <li class="grid"><a href="#">
+                                    loại</a>
+
+                            </li> -->
                             <li class="grid"><a href="frequent_question.php">Blog</a>
                             </li>
                             <li class="grid"><a href="contact.html">Contact</a>

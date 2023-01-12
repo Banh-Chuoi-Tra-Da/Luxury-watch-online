@@ -125,7 +125,7 @@ $sum = 0;
             <?php echo $total; ?></span>
         <br> <br>
     </div>
-    <a href="don_hang.php">Lịch sử đơn hàng</a>
+    
 
 
 <?php
