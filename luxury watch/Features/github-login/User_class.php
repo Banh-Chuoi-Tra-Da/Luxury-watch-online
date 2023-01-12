@@ -15,7 +15,7 @@ class User {
     private $dbHost     = 'localhost'; 
     private $dbUsername = 'root'; 
     private $dbPassword = ''; 
-    private $dbName     = 'luxury_watch_online'; 
+    private $dbName     = 'luxury_watch_online_final'; 
     private $userTbl    = 'tbl_users_oauth';
      
     function __construct(){ 

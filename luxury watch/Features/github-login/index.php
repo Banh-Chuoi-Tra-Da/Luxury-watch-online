@@ -68,6 +68,7 @@ if(isset($accessToken)){
         $sql = "SELECT * FROM tbl_nguoi_dung WHERE names = '".$tenDangNhap."'";
         $ketQuaTruyVan = $con->query($sql);
         $each = mysqli_fetch_array($ketQuaTruyVan);
+        $_SESSION["login"] = $each;
         if ($ketQuaTruyVan->num_rows == 1) {
             $_SESSION['id'] = $each['id'];
         }

@@ -32,6 +32,14 @@ foreach ($gio_hang as $gio_hang_id => $each) {
 // Cập nhập số lượng 
 
 $sql = "UPDATE `tbl_san_pham` SET `soluong` = '$soluongcon' where `masanpham` = '" . $each['masanpham'] . "'";
+$sql="SELECT * from tbl_nguoi_dung WHERE id='" . $customer_id . "'";
+$result = $con->query($sql);
+$each = mysqli_fetch_array($result);
+$email = $each['email'];
+$name = $each['names'];
+// echo $email;
+// echo $name;
+// die();
 
 // Gửi mail mua hàng thành công
 require('sendmail.php');
@@ -41,7 +49,7 @@ send_mail($email, $name, $title, $content);
 mysqli_query($con, $sql) or die("Lỗi câu lệnh update số lượng sản phẩm");
 mysqli_close($con);
 unset($_SESSION['gio_hang']);
-
+// die();
 // header('location:index.php');
 echo "<script type='text/javascript'>
                 window.alert('Cập nhập thông tin thành công');
