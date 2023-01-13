@@ -152,7 +152,7 @@ require('danhmuc_data.php');
     <!--start-logo-->
     <div class="logo">
         <a href="index.php">
-            <h1>Luxury Watches</h1>
+            <h1>Kasio Luxury Watches</h1>
         </a>
     </div>
     <!--start-logo-->
